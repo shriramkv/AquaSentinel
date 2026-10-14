@@ -1,0 +1,25 @@
+{
+  "title": "CPCB Designated Best Use (DBU) water quality criteria for surface waters",
+  "source": "Central Pollution Control Board, India: Water Quality Criteria (Designated Best Use classification)",
+  "verify_note": "Transcribed for this prototype. Check every value against the current CPCB publication before using a report for regulatory action.",
+  "classes": [
+    {"class": "A", "use": "Drinking water source without conventional treatment but after disinfection",
+     "criteria": {"total_coliform_mpn_per_100ml_max": 50, "ph_min": 6.5, "ph_max": 8.5, "do_mg_l_min": 6.0, "bod_mg_l_max": 2.0}},
+    {"class": "B", "use": "Outdoor bathing (organised)",
+     "criteria": {"total_coliform_mpn_per_100ml_max": 500, "ph_min": 6.5, "ph_max": 8.5, "do_mg_l_min": 5.0, "bod_mg_l_max": 3.0}},
+    {"class": "C", "use": "Drinking water source after conventional treatment and disinfection",
+     "criteria": {"total_coliform_mpn_per_100ml_max": 5000, "ph_min": 6.0, "ph_max": 9.0, "do_mg_l_min": 4.0, "bod_mg_l_max": 3.0}},
+    {"class": "D", "use": "Propagation of wildlife and fisheries",
+     "criteria": {"ph_min": 6.5, "ph_max": 8.5, "do_mg_l_min": 4.0, "free_ammonia_as_n_mg_l_max": 1.2}},
+    {"class": "E", "use": "Irrigation, industrial cooling, controlled waste disposal",
+     "criteria": {"ph_min": 6.0, "ph_max": 8.5, "ec_us_cm_max": 2250, "sodium_absorption_ratio_max": 26, "boron_mg_l_max": 2.0}}
+  ],
+  "measured_by_boat": ["ph", "do", "ec"],
+  "not_measured_by_boat": ["total coliform", "BOD", "free ammonia", "SAR", "boron"],
+  "other_references": [
+    {"parameter": "nitrate", "limit": "45 mg/L as NO3", "source": "BIS IS 10500:2012 drinking water (acceptable limit)",
+     "note": "Nitrate is not part of the CPCB DBU classes. Rising nitrate in a lake points to sewage or fertiliser inputs and drives algal growth well below this limit."},
+    {"parameter": "turbidity", "limit": "1 NTU acceptable, 5 NTU permissible", "source": "BIS IS 10500:2012 drinking water",
+     "note": "Applies to treated drinking water, not raw lake water; in a lake it is used as a relative indicator."}
+  ]
+}

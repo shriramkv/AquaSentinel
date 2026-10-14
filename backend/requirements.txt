@@ -1,0 +1,11 @@
+# Serving stack for the fish-health model (same pins as ../Aquaculture_Model/requirements.txt,
+# so the joblib bundle loads with the library versions it was trained with)
+-r ../../Aquaculture_Model/requirements.txt
+uvicorn[standard]
+python-dotenv>=1.0
+python-multipart>=0.0.9
+google-adk>=1.0
+google-genai>=1.0
+reportlab>=4.0
+pillow>=10.0
+pytest>=8.0

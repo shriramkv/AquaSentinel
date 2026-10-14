@@ -1,0 +1,178 @@
+{
+ "type": "FeatureCollection",
+ "properties": {
+  "name": "Sample Lake",
+  "demo": true,
+  "note": "Demo outline, not a real water body. Replace this file with a real lake outline (one Polygon with kind=lake, Points for inlets/outfalls/dock) and set demo to false."
+ },
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "kind": "lake",
+    "name": "Sample Lake"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       76.995607,
+       10.999638
+      ],
+      [
+       76.996065,
+       10.998281
+      ],
+      [
+       76.997255,
+       10.997467
+      ],
+      [
+       76.998902,
+       10.997196
+      ],
+      [
+       77.000732,
+       10.997286
+      ],
+      [
+       77.002379,
+       10.997557
+      ],
+      [
+       77.00366,
+       10.998372
+      ],
+      [
+       77.004393,
+       10.999638
+      ],
+      [
+       77.004301,
+       11.000995
+      ],
+      [
+       77.003477,
+       11.002081
+      ],
+      [
+       77.002013,
+       11.002714
+      ],
+      [
+       77.000366,
+       11.002895
+      ],
+      [
+       76.998627,
+       11.002714
+      ],
+      [
+       76.997072,
+       11.002171
+      ],
+      [
+       76.996065,
+       11.001176
+      ],
+      [
+       76.995607,
+       10.999638
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "north_inlet",
+    "name": "North inlet",
+    "kind": "inlet"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.000366,
+     11.002895
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "east_inlet",
+    "name": "East inlet",
+    "kind": "inlet"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.004393,
+     10.999638
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "southwest_drain",
+    "name": "South-west drain",
+    "kind": "outfall"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     76.997255,
+     10.997467
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "west_outfall",
+    "name": "West outfall",
+    "kind": "outfall"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     76.995607,
+     10.999638
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "south_bay",
+    "name": "South bay",
+    "kind": "bay"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.001556,
+     10.997413
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "dock",
+    "name": "Boat dock",
+    "kind": "dock"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     76.998627,
+     11.002714
+    ]
+   }
+  }
+ ]
+}
