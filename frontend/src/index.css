@@ -1,0 +1,165 @@
+@import "tailwindcss";
+
+/* Colour roles. Light values on :root; dark values under the OS setting and the manual toggle. */
+:root {
+  color-scheme: light;
+  --page: #f6f7f6;
+  --surface: #fcfcfb;
+  --surface-2: #f0f1ef;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #7c7a74;
+  --grid: #e1e0d9;
+  --axis: #c3c2b7;
+  --line: rgba(11, 11, 11, 0.1);
+  --accent: #0f766e;
+  --accent-ink: #ffffff;
+  --accent-soft: #dff1ee;
+  --series: #2a78d6;
+  --neg: #e34948;
+  --good: #0ca30c;
+  --warning: #fab219;
+  --serious: #ec835a;
+  --critical: #d03b3b;
+  --water: #e4ecef;
+  --shadow: 0 1px 2px rgba(11, 11, 11, 0.05), 0 4px 16px rgba(11, 11, 11, 0.04);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page: #0d0d0d;
+    --surface: #1a1a19;
+    --surface-2: #252523;
+    --ink: #f0efec;
+    --ink-2: #c3c2b7;
+    --muted: #898781;
+    --grid: #2c2c2a;
+    --axis: #383835;
+    --line: rgba(255, 255, 255, 0.1);
+    --accent: #2bb5a6;
+    --accent-ink: #04201c;
+    --accent-soft: #12302c;
+    --series: #3987e5;
+    --neg: #e66767;
+    --water: #20282b;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d;
+  --surface: #1a1a19;
+  --surface-2: #252523;
+  --ink: #f0efec;
+  --ink-2: #c3c2b7;
+  --muted: #898781;
+  --grid: #2c2c2a;
+  --axis: #383835;
+  --line: rgba(255, 255, 255, 0.1);
+  --accent: #2bb5a6;
+  --accent-ink: #04201c;
+  --accent-soft: #12302c;
+  --series: #3987e5;
+  --neg: #e66767;
+  --water: #20282b;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+@theme inline {
+  --color-page: var(--page);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-muted: var(--muted);
+  --color-grid: var(--grid);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-soft: var(--accent-soft);
+  --color-series: var(--series);
+  --color-good: var(--good);
+  --color-warning: var(--warning);
+  --color-serious: var(--serious);
+  --color-critical: var(--critical);
+  --font-sans: system-ui, -apple-system, "Segoe UI", "Noto Sans", "Noto Sans Tamil", "Noto Sans Devanagari", sans-serif;
+}
+
+@layer base {
+  html, body, #root { height: 100%; }
+  body { margin: 0; background: var(--page); color: var(--ink); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+  button, select, input, textarea { font: inherit; color: inherit; }
+  button, select { cursor: pointer; }
+  button:disabled, select:disabled { cursor: not-allowed; opacity: 0.5; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  code { font-size: 0.92em; }
+}
+
+@layer components {
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow); }
+  .card-title { font-size: 0.8125rem; font-weight: 650; letter-spacing: 0.01em; color: var(--ink); }
+  .eyebrow { font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem; border-radius: 9px; padding: 0.45rem 0.8rem;
+    font-size: 0.8125rem; font-weight: 550; border: 1px solid var(--line); background: var(--surface); transition: background 0.12s, border-color 0.12s; white-space: nowrap; }
+  .btn:hover:not(:disabled) { background: var(--surface-2); }
+  .btn-primary { background: var(--accent); color: var(--accent-ink); border-color: transparent; }
+  .btn-primary:hover:not(:disabled) { background: var(--accent); filter: brightness(1.08); }
+  .btn-sm { padding: 0.28rem 0.55rem; font-size: 0.75rem; border-radius: 7px; }
+  .field { width: 100%; border-radius: 9px; border: 1px solid var(--line); background: var(--surface); padding: 0.5rem 0.65rem; font-size: 0.8125rem; }
+  .field::placeholder { color: var(--muted); }
+  .chip { display: inline-flex; align-items: center; gap: 0.3rem; border-radius: 999px; padding: 0.12rem 0.5rem; font-size: 0.6875rem; font-weight: 600;
+    background: var(--surface-2); color: var(--ink-2); white-space: nowrap; }
+  .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 9px; overflow: hidden; background: var(--surface); }
+  .seg button { padding: 0.3rem 0.6rem; font-size: 0.75rem; font-weight: 550; color: var(--ink-2); border: 0; background: transparent; }
+  .seg button[aria-pressed="true"] { background: var(--accent-soft); color: var(--ink); }
+  .notice { border-radius: 10px; border: 1px solid var(--line); background: var(--surface-2); padding: 0.6rem 0.75rem; font-size: 0.78rem; color: var(--ink-2); line-height: 1.45; }
+  .tnum { font-variant-numeric: tabular-nums; }
+  .icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 2.25rem; height: 2.25rem; flex: none; border-radius: 9px;
+    border: 1px solid var(--line); background: var(--surface); }
+  .icon-btn:hover:not(:disabled) { background: var(--surface-2); }
+  .icon-btn.btn-primary { background: var(--accent); color: var(--accent-ink); border-color: transparent; }
+  .icon-btn.btn-primary:hover:not(:disabled) { background: var(--accent); filter: brightness(1.08); }
+  .icon-btn[data-live="true"] { background: var(--critical); border-color: transparent; color: #fff; }
+  .tabbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 1100; display: flex; border-top: 1px solid var(--line);
+    background: color-mix(in srgb, var(--surface) 94%, transparent); backdrop-filter: blur(10px); padding-bottom: env(safe-area-inset-bottom); }
+  .tabbar a { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 0.45rem 0.2rem 0.4rem;
+    font-size: 0.66rem; font-weight: 600; color: var(--muted); text-decoration: none; }
+  .tabbar a span { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .tabbar a[aria-current="page"] { color: var(--accent); }
+}
+
+/* Phones: 16px inputs stop iOS from zooming the page on focus */
+@media (max-width: 767px) {
+  .field, select.btn { font-size: 16px; }
+}
+/* Touch screens: controls large enough for a fingertip */
+@media (pointer: coarse) {
+  .btn { min-height: 2.5rem; }
+  .btn-sm { min-height: 2.25rem; padding-inline: 0.7rem; font-size: 0.8125rem; }
+  .seg button { min-height: 2.25rem; padding-inline: 0.75rem; font-size: 0.8125rem; }
+  .icon-btn { width: 2.6rem; height: 2.6rem; }
+  input[type="checkbox"] { width: 1.15rem; height: 1.15rem; }
+}
+
+/* Leaflet, restyled to the theme */
+.leaflet-container { background: var(--surface-2); font-family: var(--font-sans); border-radius: 12px; }
+.leaflet-tooltip { background: var(--surface); color: var(--ink); border: 1px solid var(--line); box-shadow: var(--shadow); border-radius: 8px; font-size: 0.72rem; padding: 4px 7px; }
+.leaflet-tooltip::before { display: none; }
+.leaflet-bar a { background: var(--surface); color: var(--ink); border-color: var(--line); }
+.leaflet-bar a:hover { background: var(--surface-2); color: var(--ink); }
+.leaflet-control-attribution { background: transparent !important; color: var(--muted); font-size: 0.62rem; }
+.leaflet-control-attribution a { color: var(--muted); }
+.map-label { background: none; border: 0; }
+.boat-icon { transition: transform 0.45s linear; }
+.pulse { animation: pulse 1.6s ease-out infinite; }
+.mic-live { animation: mic 1.1s ease-in-out infinite; }
+@keyframes mic { 50% { box-shadow: 0 0 0 6px color-mix(in srgb, var(--critical) 25%, transparent); } }
+@keyframes pulse { 0% { opacity: 0.9; transform: scale(0.6); } 100% { opacity: 0; transform: scale(2.2); } }
+@media (prefers-reduced-motion: reduce) { .pulse, .mic-live { animation: none; } .boat-icon { transition: none; } }
+
+.prose-sm p { margin: 0 0 0.5rem; } .prose-sm p:last-child { margin-bottom: 0; }
+.prose-sm ul, .prose-sm ol { margin: 0 0 0.5rem; padding-left: 1.1rem; list-style: disc; } .prose-sm ol { list-style: decimal; }
+.prose-sm h1, .prose-sm h2, .prose-sm h3 { font-size: 0.85rem; font-weight: 650; margin: 0.7rem 0 0.3rem; }
+.prose-sm table { border-collapse: collapse; font-size: 0.74rem; margin: 0.4rem 0; display: block; overflow-x: auto; }
+.prose-sm th, .prose-sm td { border-bottom: 1px solid var(--line); padding: 0.25rem 0.5rem; text-align: left; }
+.prose-sm code { font-size: 0.74rem; background: var(--surface-2); padding: 0 0.25rem; border-radius: 4px; }
